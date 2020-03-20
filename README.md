@@ -1,0 +1,1 @@
+This is an Etch-a-Sketch Project built with Javascript, HTML, and CSS. The project allows you to draw anything inside a grid size of your choosing. Drawings are made by hovering your mouse inside the grid. The main goal of this project is to learn DOM manipulation
