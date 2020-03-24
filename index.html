@@ -13,12 +13,19 @@
 
   <div id='container'></div>
 
+  <div>
+    <button type="button" id='clear-button'>Clear</button>
+  </div>
+
 </body>
 
 
 <script>
 
   const container = document.getElementById('container');
+  const cells = document.getElementsByClassName('cell')
+  const clearButton = document.getElementById('clear-button');
+  clearButton.addEventListener('click', clearGrid);
 
   function makeGrid(rows, columns) {
     container.style.setProperty('--grid-rows', rows);
@@ -29,17 +36,26 @@
       div.classList.add('cell');
       container.appendChild(div);
     }
+    paintGrid();
   }
 
-  makeGrid(50,50);
-
-
-  const cells = document.getElementsByClassName('cell')
-  Array.from(cells).forEach(cell => cell.addEventListener('mouseover', function(e){
-    console.log(e);
-    e.target.style.backgroundColor = 'orange';
-  }));
+  function paintGrid (userColor) {
+    Array.from(cells).forEach(cell => cell.addEventListener('mouseover', function(e){
+      console.log(e);
+      e.target.style.backgroundColor = 'orange';
+    }));
+  }
   
+  function clearGrid() {
+    let gridSize;
+    do {
+      gridSize = prompt("Enter a number for the grid size between 2 and 90");
+    } while (gridSize < 2 || gridSize > 90);
+    makeGrid(gridSize,gridSize);
+    Array.from(cells).forEach(cell => cell.style.backgroundColor = 'white');
+  }
+
+  makeGrid(16,16);
 
 </script>
 
