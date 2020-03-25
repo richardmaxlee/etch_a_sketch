@@ -17,6 +17,18 @@
     <button type="button" id='clear-button'>Clear</button>
   </div>
 
+  <div class='palette'>
+    <div id='black'></div>
+    <div id='red'></div>
+    <div id='orange'></div>
+    <div id='yellow'></div>
+    <div id='green'></div>
+    <div id='royalblue'></div>
+    <div id='rebeccapurple'></div>
+    <div id='orchid'></div>
+    <div id='white'>Eraser</div>
+  </div>
+
 </body>
 
 
@@ -25,6 +37,9 @@
   const container = document.getElementById('container');
   const cells = document.getElementsByClassName('cell')
   const clearButton = document.getElementById('clear-button');
+  const palette = document.getElementsByClassName('palette')
+
+  let userColor = 'black';
   clearButton.addEventListener('click', clearGrid);
 
   function makeGrid(rows, columns) {
@@ -36,16 +51,22 @@
       div.classList.add('cell');
       container.appendChild(div);
     }
-    paintGrid();
+    paintGrid(userColor);
   }
 
   function paintGrid (userColor) {
-    Array.from(cells).forEach(cell => cell.addEventListener('mouseover', function(e){
-      console.log(e);
-      e.target.style.backgroundColor = 'orange';
+    Array.from(cells).forEach(cell => cell.addEventListener('mouseover', function(e) {
+      e.target.style.backgroundColor = userColor;
     }));
   }
   
+  function initColorPalette () {
+    Array.from(palette).forEach(color => color.addEventListener('click', function(e) {
+      userColor = e.target.id;
+      paintGrid(userColor);
+    }));
+  }
+
   function clearGrid() {
     let gridSize;
     do {
@@ -56,6 +77,7 @@
   }
 
   makeGrid(16,16);
+  initColorPalette();
 
 </script>
 

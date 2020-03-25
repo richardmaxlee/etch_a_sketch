@@ -13,6 +13,59 @@
 }
 
 .cell {
-  /* border: 1px solid black; */
   background-color: white;
+}
+
+.palette {
+  display: grid;
+  float: right;
+  grid-template-rows: repeat(5, 25px);
+  grid-template-columns: repeat(2, 25px);
+  grid-gap: 5px;
+}
+
+#black {
+  background-color: black;
+  border: 1px solid black;
+}
+
+#red {
+  background-color: red;
+  border: 1px solid black;
+}
+
+#orange {
+  background-color: orange;
+  border: 1px solid black;
+}
+
+#yellow {
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+#green {
+  background-color: green;
+  border: 1px solid black;
+}
+
+#royalblue {
+  background-color: royalblue;
+  border: 1px solid black;
+}
+
+#rebeccapurple {
+  background-color: rebeccapurple;
+  border: 1px solid black;
+}
+
+#orchid {
+  background-color: orchid;
+  border: 1px solid black;
+}
+
+#white {
+  background-color: white;
+  border: 1px solid black;
+  grid-column: 1/3;
 }
